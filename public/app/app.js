@@ -1,6 +1,6 @@
 (function() {
 
-    var app = angular.module('app', []);
+    var app = angular.module('app', ['ngRoute']);
 
     app.provider('books', ['constants', function (constants) {
 
@@ -28,10 +28,19 @@
 
     }]);
 
-    app.config(['booksProvider', function (booksProvider) {
+    app.config(['booksProvider', '$routeProvider', function (booksProvider, $routeProvider) {
 
-        booksProvider.setIncludeVersionInTitle(true);
-
+      booksProvider.setIncludeVersionInTitle(true);
+      $routeProvider
+        .when('/',{
+          templateUrl: '/app/templates/books.html',
+          controller: 'BooksController',
+          controllerAs: 'books'
+        })
+        .when('/AddBook',{
+          templateUrl: '/app/templates/addBooks.html',
+          controller: 'AddBookController',
+          controllerAs: 'addBooks'
+        });
     }]);
-
 }());
