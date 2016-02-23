@@ -41,6 +41,12 @@
           templateUrl: '/app/templates/addBooks.html',
           controller: 'AddBookController',
           controllerAs: 'addBooks'
-        });
+        })
+        .when('/EditBook/:bookID', {
+          templateUrl: '/app/templates/editBook.html',
+          controller: 'EditBookController',
+          controllerAs: 'bookEditor'
+        })
+        .otherwise('/');
     }]);
 }());
