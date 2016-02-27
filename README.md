@@ -1,4 +1,4 @@
-##### To run:
+#### To run:
 `node ./server.js`
 
 ####     Promises and $q service
@@ -56,3 +56,23 @@ function getAllReadersComplete() {
   console.log("Did everything for readers");
 }
 ```
+
+#### $route Events
+
+- Есть несколько ивентов, которые имеют отношение к route. Все они будут видны в `$rootScope`
+- Нужно инджектить `$rootScope` для того, чтобы определять  обработчика события
+- Используйте $rootScope.$on() чтобы определять, какой тип ивента нужно слушать.
+- Есть 4 типа ивента:
+\$routeChangeStart
+\$routeChangeSuccess
+\$routeChangeError
+\$routeUpdate
+
+Пример:
+
+```javascript
+app.run(['$rootScope', function ($rootScope) {
+      $rootScope.$on('$routeChangeSuccess',function (event, current, previous) {
+        console.log('successfully changed routes');
+      });
+``` 

@@ -55,4 +55,19 @@
         .otherwise('/');
     }]);
 
+    app.run(['$rootScope', function ($rootScope) {
+      $rootScope.$on('$routeChangeSuccess',function (event, current, previous) {
+        console.log('successfully changed routes');
+      });
+
+      $rootScope.$on('$routeChangeError', function (event,current, previous, rejection) {
+        console.log('error changing routes');
+
+        console.log(event);
+        console.log(current);
+        console.log(previous);
+        console.log(rejection);
+      });
+    }])
+
 }());
