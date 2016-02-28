@@ -1,6 +1,6 @@
 (function() {
 
-    var app = angular.module('app', ['ngRoute']);
+    var app = angular.module('app', ['ngRoute', 'ngCookies']);
 
     app.provider('books', ['constants', function (constants) {
 
@@ -15,20 +15,20 @@
             var version = constants.APP_VERSION;
 
             if (includeVersionInTitle) {
-                appName += ' ' + version;
+              appName += ' ' + version;
             }
 
             var appDesc = constants.APP_DESCRIPTION;
 
             return {
-                appName: appName,
-                appDesc: appDesc
+              appName: appName,
+              appDesc: appDesc
             };
         };
 
     }]);
 
-    app.config(['booksProvider', '$routeProvider', function (booksProvider, $routeProvider) {
+    app.config(['booksProvider', '$routeProvider' function (booksProvider, $routeProvider) {
 
       booksProvider.setIncludeVersionInTitle(true);
       $routeProvider

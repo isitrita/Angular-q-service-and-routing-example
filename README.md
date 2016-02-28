@@ -75,4 +75,15 @@ app.run(['$rootScope', function ($rootScope) {
       $rootScope.$on('$routeChangeSuccess',function (event, current, previous) {
         console.log('successfully changed routes');
       });
-``` 
+```
+
+### `$cookies` и `$cookiesStore`
+
+- `ngCookies` модуль
+- Используйте `$cookies` для чтения/записи объектов как свойство сервиса
+- Используйте `$cookiesStore` для чтения/записи объектов
+
+ Сериализация/Десериализация в и из JSON
+ `get(key)`
+ `put(key, value)`
+ `remove(key)`
